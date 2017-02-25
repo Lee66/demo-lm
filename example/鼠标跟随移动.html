@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p  class ="_title" title="slkfslfjsklfjsd">fdsfsdfs</p>
+		<script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			///tolltip-浮动说明框
+			$(document).ready(function() {
+				var x = 10;
+				var y = 20;
+				$("._title").mouseover(function(e) {
+//					alert(e.pageX);
+					if(typeof($(this).attr('title')) !== 'undefined' && $(this).attr('title') !== "" && $(this).attr('title') !== "undefined") { // 判断标签中是否有定义title属性
+						this.my_tit = this.title;
+						this.title = '';
+						var tooltip = "<div class='tooltip'>" + this.my_tit + "</div>";
+						$("body").append(tooltip);
+						$(".tooltip").css({
+							display: 'block',
+							left: e.pageX + x,
+							top: e.pageY + y
+						});
+					};
+				}).mouseout(function() {
+					if(typeof($(this).attr('title')) != 'undefined') {
+						this.title = this.my_tit;
+						$(".tooltip").remove();
+					};
+				}).mousemove(function(e) { // 鼠标移动时跟随
+					$(".tooltip").css({
+						left: e.pageX + x,
+						top: e.pageY + y
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

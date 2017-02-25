@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tips
+				{
+				  height: 20px;
+				  background-color: Green;
+				  padding: 5px 20px;
+				  color: White;
+				  display: none;
+				  margin-left: 50px;
+				}
+		</style>
+	</head>
+	<body>
+		
+
+<span class="tips" style="display:none" id="tips">11111<span>
+	<script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			(function ($) {
+			  $.fn.Tips = function (options) {
+			    var defaults = {
+			      html: "",
+			      times: 3000,
+			    }
+			    _this_ = $("#tips");
+			    _this_.html(options.html);
+			    _this_.show();
+			    setTimeout(function () { _this_.hide() }, options.times);
+			  };
+			})(jQuery);
+			$("#aa").Tips({html:"提示信息的内容",times:4000})
+		</script>
+	</body>
+</html>

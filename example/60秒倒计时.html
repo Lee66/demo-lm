@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>60秒倒计时发送短信</title>
+	</head>
+	<body>
+<input type="button" style="height:32px;width:100px;" value="点击发送验证码" onclick="sendCode(this)" />
+<script type="text/javascript">
+var clock = '';
+var nums = 59;
+var btn;
+
+function sendCode(thisBtn) {
+	btn = thisBtn;
+	console.log(btn);
+	btn.disabled = true; //将按钮置为不可点击
+	btn.value = nums + '秒后可重新获取';
+	clock = setInterval(doLoop, 1000); //一秒执行一次
+}
+
+function doLoop() {
+	nums--;
+	if(nums > 0) {
+		btn.value = nums + '秒后可重新获取';
+	} else {
+		clearInterval(clock); //清除js定时器
+		btn.disabled = false;
+		btn.value = '点击发送验证码';
+		nums = 59; //重置时间
+	}
+}
+</script>
+	</body>
+</html>

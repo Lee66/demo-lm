@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p><input type="checkbox" name="checkall" />全选</p>
+		<p><input type="checkbox" name="check" />单选1</p>
+		<p><input type="checkbox" name="check" />单选2</p>
+		<p><input type="checkbox" name="check" />单选3</p>
+		
+		<script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//调用全选插件
+				$.fn.check({
+					checkall_name: "checkall",
+					checkbox_name: "check"
+				});
+			});
+			//全选插件
+			//checkall_name   操作全选的复选框name
+			//checkbox_name   被操作的复选框的name  name值可不统一 设置包含值 以XXX开头 自己修改
+			(function($) {
+				$.fn.check = function(options) {
+					var defaults = {
+							checkall_name: "checkall_name", //全选框name
+							checkbox_name: "checkbox_name" //被操作的复选框name
+						},
+						ops = $.extend(defaults, options);
+					e = $("input[name='" + ops.checkall_name + "']"), //全选
+						f = $("input[name='" + ops.checkbox_name + "']"), //单选
+						g = f.length; //被操作的复选框数量
+					f.click(function() {
+						$("input[name ='" + ops.checkbox_name + "']:checked").length == $("input[name='" + ops.checkbox_name + "']").length ? e.attr("checked", !0) : e.attr("checked", !1);
+					}), e.click(function() {
+						for(i = 0; g > i; i++) f[i].checked = this.checked;
+					});
+				};
+			})(jQuery);
+		</script>
+	</body>
+
+</html>

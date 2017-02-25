@@ -1,0 +1,31 @@
+<html>
+    <head>
+    	<meta charset="UTF-8"/>
+        <title></title>
+        <script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#phone").focusout(function () {            
+            $("#phone").val($("#phone").val().substring(0, 3) + "****" + $("#phone").val().substring(7, 11));
+        });         });
+//方法二			
+
+
+var tlephone = "18827768782";
+var reg = /^(\d{3})\d{4}(\d{4})$/;
+tlephone = tlephone.replace(reg, "$1****$2");
+console.log(tlephone);
+</script></head>
+<body>
+<p>隐藏电话号码中间4位号码</p>
+<input type="text" id="phone" value=""  />     
+    </body>
+</html>
+
+
+
+var bIsLayerOpen = false;// 标志弹出层是否打开，如果弹出层打开，则为true，否则为false
+ 
+window.onscroll = function(){
+    bIsLayerOpen && window.scrollTo(0,0);
+}

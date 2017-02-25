@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		li{
+			list-style: none;
+		}
+#tabPage {
+	width: 1000px;
+	height: 500px;
+	overflow: hidden;
+	box-shadow: 2px 2px 2px #000;
+	margin: 100px auto;
+}
+
+#tabPageHeader {
+	float: left;
+	width: 1000px;
+	height: 50px;
+	background: #999;
+}
+
+#tabPageHeader li {
+	float: left;
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+#tabPageHeader .current {
+	background: #F00;
+	cursor: pointer;
+	color: #FFF;
+}
+
+#tabPageContent {
+	float: left;
+	width: 1000px;
+	height: 400px;
+	overflow: hidden;
+	padding-top: 50px;
+	background: yellow;
+	border: 3px solid red;
+}
+
+#tabPageContent ul {
+	float: left;
+	width: 1000px;
+	height: 400px;
+	overflow: hidden;
+	display: none;
+	background: yellow;
+}
+#tabPageContent ul li {
+	float: left;
+	background: yellow;
+	width: 1000px;
+	line-height: 50px;
+}
+		</style>
+	</head>
+	<body>
+	<div id="tabPage">
+	<ul id="tabPageHeader">
+		<li class="current">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<div id="tabPageContent">
+		<ul style="display:block;">
+			<li>第一标签页</li>
+
+		</ul>
+		<ul>
+			<li>第二标签页</li>
+		</ul>
+		<ul>
+			<li>第三标签页</li>
+		</ul>
+		<ul>
+			<li>第四标签页</li>
+		</ul </div>
+	</div>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+// jqery 写法
+    ;$(function(){
+	    	var $li = $('#tabPageHeader li');
+	    	var $ul = $('#tabPageContent ul');
+	    	$li.click(function() {
+	    		var $this = $(this);
+	    		var $t = $this.index();
+	    		$li.removeClass();
+	    		$this.addClass('current');
+	    		$ul.css('display', 'none');
+	    		$ul.eq($t).css('display', 'block');
+	    	});
+    });
+</script>
+	</body>
+</html>
