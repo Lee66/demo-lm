@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>表单验证插件</title>
+		<style type="text/css">
+			ul {
+				width: 500px;
+				height: 400px;
+				list-style: none;
+			}
+			
+			li {
+				height: 60px;
+				position: relative;
+			}
+			
+			/*#errormsg {
+				position: absolute;
+				top: 40px;
+				left: 0;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<form id="myform" method="post" action="success.html">
+			<ul>
+				<!--<li>
+      邮箱：<input type="text" name="email" check="required email" />
+      </li>-->
+				<li>
+					密码：<input type="password" check="required pwd1" meg="密码"/>
+				</li>
+				<li>
+					确认密码：<input type="password" check="required pwd2" meg="确认密码" />
+				</li>
+				<li>
+					手机：<input type="text" name="num" check="required mobile" meg="手机号" />
+				</li>
+				<li>
+					数字：<input type="text" name="num" check="required num" meg="数字"/>
+				</li>
+				<li>
+					地址：<textarea cols="5" rows="5" check="required" meg="地址"></textarea>
+				</li>
+				<!--<li>
+					不加check验证的文本框：<input type="text" name="num" />
+				</li>-->
+			</ul>
+		<p id="main"></p>
+			<input type="submit" value="提交" />
+		</form>
+
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/new_file.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#myform").checkForm();
+		</script>
+	</body>
+
+</html>

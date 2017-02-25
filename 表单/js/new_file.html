@@ -1,0 +1,173 @@
+<html>
+<meta charset="utf-8">
+<title>扇形</title>
+<head>
+<style type="text/css">
+/*
+#piebox{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border-radius:50%;
+        overflow: hidden;
+    }
+     
+    #pie{
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        margin: auto;
+        position: relative;
+        border-radius:50%;
+        overflow: hidden;
+    }
+    #pie::after{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: #000;
+        transition:all 2s linear;
+        transform-origin:100% 50%;
+        transform:rotate(0deg);
+    }
+    #pie::before{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: #333;
+        transform-origin:100% 50%;
+        transform:rotate(0deg);
+    }
+*/
+     
+    #piebox2{
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+        border-radius:50%;
+        position: relative;
+        /*overflow: hidden;*/
+        background-color: #ccc;
+    }
+    #piebox2 .piebox2-1{
+        display: inline-block;
+        /*border-bottom-left-radius: 100%;*/
+        width: 50px;
+        height: 100px;
+        overflow: hidden;
+        float: left;
+        /*transition:all 2s linear;*/
+        transform-origin:100% 50%;
+        transform:rotate(0deg);
+    }
+    #piebox2 .piebox2-2{
+        display: inline-block;
+        /*border-bottom-left-radius: 100%;*/
+        width: 50px;
+        height: 100px;
+        overflow: hidden;
+        float: left;
+        transform-origin:0% 50%;
+        transform:rotate(180deg);
+    }
+    #piebox2 .piebox2-1 span{
+        display: inline-block;
+        border-radius: 100%;
+        /*border-bottom-left-radius: 100%;*/
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+         
+    }
+    #piebox2 .piebox2-2 span{
+        display: inline-block;
+        border-radius: 100%;
+        /*border-bottom-left-radius: 100%;*/
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+        background-color: #ccc;
+         
+    }
+    #input{
+        width: 100px;
+        height: 20px;
+        line-height: 20px;
+    }
+    #bi{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 20;
+        left: 50%;
+        top: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+        font-size: 12px;
+    }
+</style>
+</head>
+ 
+<body>
+    <div id="piebox">
+        <div id="pie">
+        </div>
+    </div>
+    <div id="piebox2">
+        <div id="bi"></div>
+        <span class="piebox2-1" id="piebox2-1">
+            <span id="pie-col"></span>
+        </span>
+        <span class="piebox2-2" id="piebox2-2">
+            <span id="piebox2-2-s"></span>
+        </span>
+    </div>
+<span>角度:</span><input type="text" id="input" />
+<span>颜色:</span><input type="text" id="inputColor" />
+<button id="button">提交</button>
+<div>注：角度不能大于360，颜色不填默认黑色</div>
+</body>
+<script type="text/javascript">
+    var s=0
+    var deg=0;
+    var d=0;
+    var timer;
+    var Color='#000';
+    document.getElementById("button").onclick=function(){
+        var s=document.getElementById("input").value;
+        Color=document.getElementById("inputColor").value;
+        if (!Color) {
+            Color='#000';
+        };
+        document.getElementById("pie-col").style.background=Color;
+        timer=setInterval('pie('+s+')',30);
+        d = 0;
+        console.log(s)
+    };
+    function pie(s){
+        if (d-s==0) {
+            console.log(111)
+            clearInterval(timer)
+        }else{
+            console.log(d)
+            deg=deg+Math.round((s-deg)*100/4)/100;
+            d=deg
+            d=Math.round(d);
+            document.getElementById("bi").innerHTML=((d/360)*100).toFixed(1)+'%';
+            document.getElementById("piebox2-1").style.transform='rotate('+d+'deg)';
+            if (deg>180) {
+                document.getElementById("piebox2-2").style.transform='rotate('+0+'deg)';
+                document.getElementById("piebox2-2-s").style.background=Color;
+            };
+        };
+    }
+</script>
+ 
+ 
+</html>
