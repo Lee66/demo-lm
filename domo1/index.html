@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>input框中手机号间隔效果</title>
+		<style type="text/css">
+			input {
+				height: 40px;
+				width: 260px;
+				font-size: 30px;
+				padding: 0 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<label for="">手机号：</label><input type="text" id="input" maxlength="13" />
+		<script type="text/javascript">
+			var input = document.getElementById("input");
+
+			/**
+			 * 方案1
+			 */
+			input.onkeypress = function() {
+				var val_len = this.value.length;
+				if(val_len == 3 || val_len == 8) {
+					this.value += " ";
+				}
+			}
+
+			/**
+			 *方案2 
+			 */
+			input.oninput = function() {
+				var val_len = this.value.length;
+				var str_last = this.value.charAt(val_len - 1);
+				var str_head = this.value.substr(0, val_len - 1);
+
+				if(val_len === 4) {
+					this.value = str_last !== ' ' ? str_head.toString() + ' ' + str_last.toString() : str_head.toString();
+				}
+
+				if(val_len === 9) {
+					this.value = str_last !== ' ' ? str_head.toString() + ' ' + str_last.toString() : str_head.toString();
+				}
+			}
+		</script>
+	</body>
+
+</html>
