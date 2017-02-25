@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			form {
+				font-family: Arial;
+				font-size: 14px;
+				width: 300px;
+			}
+			
+			fieldset {
+				border: 1px solid #ccc;
+				margin-bottom: 10px;
+			}
+			
+			fieldset.login input {
+				width: 125px;
+			}
+			
+			legend {
+				font-weight: bold;
+				font-size: 1.1em;
+			}
+			
+			label {
+				display: block;
+				width: 60px;
+				text-align: right;
+				float: left;
+				padding-right: 10px;
+				margin: 5px 0;
+			}
+			
+			input {
+				margin: 5px 0;
+			}
+			
+			input.text {
+				padding: 0 0 0 3px;
+				width: 172px;
+			}
+			
+			input.submit {
+				margin: 15px 0 0 70px;
+			}
+			
+			ul.errors {
+				list-style: none;
+				background: #ffcece;
+				padding: 3px;
+				margin: 3px 0 3px 70px;
+				font-size: 0.9em;
+				width: 165px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="" method="post">
+			<fieldset class="login">
+				<legend>Login information</legend>
+				<label for="userName" class="hover">UserName:</label>
+				<input type="text" id="userName" class="phone" /><br />
+				<label for="password" class="hover">Password:</label>
+				<input type="text" id="password" class="required text" /><br />
+			</fieldset>
+			<fieldset>
+				<legend>Personal Information</legend>
+				<label for="name" class="hover">Name:</label>
+				<input type="text" id="name" class="required text" /><br />
+				<label for="email" class="hover">Email:</label>
+				<input type="text" id="email" class="required text email" /><br />
+				<label for="date" class="hover">Date:</label>
+				<input type="text" id="date" class="required text" /><br />
+				<label for="url" class="hover">Website:</label>
+				<input type="text" id="url" class="url text" value="http://" /><br />
+				<label for="phone" class="hover">Phone:</label>
+				<input type="text" id="phone" class="phone text" /><br />
+				<label for="age" class="hover">Age:</label>
+				<input type="checkbox" id="age" name="age" value="yes" /><br />
+
+				<input type="submit" value="Submit Form" class="submit" />
+			</fieldset>
+		</form>
+		<script src="js/form2.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

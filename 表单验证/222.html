@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>表单验证</title>
+		<script type="text/javascript">
+			function $(id) {
+				return document.getElementById(id);
+			}
+
+			function check() {
+				var email = $("email").value;
+				var password = $("password").value;
+				var repassword = $("repassword").value;
+				var name = $("name").value;
+
+				$("emailinfo").innerHTML = "";
+				$("passwordinfo").innerHTML = "";
+				$("repasswordinfo").innerHTML = "";
+				$("nameinfo").innerHTML = "";
+
+				if(email == "") {
+					$("emailinfo").innerHTML = "Email值不能为空";
+					return false;
+				}
+
+				if(email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+					$("emailinfo").innerHTML = "邮箱格式不正确,必须包含@和.";
+					return false;
+				}
+
+				if(password == "") {
+					$("passwordinfo").innerHTML = "密码不能为空";
+					return false;
+				}
+
+				if(password.length < 6) {
+					$("passwordinfo").innerHTML = "密码长度必须大于或者等于6";
+					return false;
+				}
+
+				if(repassword != password) {
+					$("repasswordinfo").innerHTML = "两次输入的密码不一致";
+					return false;
+				}
+
+				if(name == "") {
+					$("nameinfo").innerHTML = "姓名不能为空";
+					return false;
+				}
+
+				for(var i = 0; i < name.length; i++) {
+					var j = name.subString(i, i + 1);
+					if(isNaN(j) == false) {
+						$("nameinfo").innerHTML = '姓名中不能包含数字';
+						return false;
+					}
+				}
+			}
+			if(check()){
+				console.log('成功');
+			}else{
+				console.log('失败');
+			}
+			function checkEmail() { //校验Email  
+				$('emailinfo').innerHTML = "";
+				var email = $('email').value;
+				if(email == "") {
+					$('emailinfo').innerHTML = "Email值不能为空";
+					return false;
+				}
+
+				if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+					$('emailinfo').innerHTML = "Email必须包含@和.";
+					return false;
+				}
+			}
+
+			function checkPassword() { //校验密码  
+				$('passwordinfo').innerHTML = "";
+				var password = $('password').value;
+				if(password == "") {
+					$("passwordinfo").innerHTML = "密码不能为空";
+					return false;
+				}
+
+				if(password.length < 6) {
+					$("passwordinfo").innerHTML = "密码长度必须大于或者等于6";
+					return false;
+				}
+			}
+
+			function checkRepassword() { //校验重新输入的密码  
+				$('repassword').innerHTML = "";
+				var repassword = $('repassword').value;
+				if(repassword != password) {
+					$("repasswordinfo").innerHTML = "两次输入的密码不一致";
+					return false;
+				}
+			}
+
+			function checkName() { //校验姓名  
+				$('nameinfo').innerHTML = "";
+				var name = $('name').value;
+				if(name == "") {
+					$("nameinfo").innerHTML = "姓名不能为空";
+					return false;
+				}
+
+				for(var i = 0; i < name.length; i++) {
+					var j = name.subString(i, i + 1);
+					if(isNaN(j) == false) {
+						$("nameinfo").innerHTML = '姓名中不能包含数字';
+						return false;
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<form name="login_form" method="post" onsubmit="return check()">
+			<div>
+				Email:<input type="text" name="email" id="email" onblur="checkEmail();" /><span id="emailinfo"></span>
+			</div>
+			<div>
+				密码:<input type="password" name="password" id="password" onblur="checkPassword();" /><span id="passwordinfo"></span>
+			</div>
+			<div>
+				重输密码:<input type="password" name="repassword" id="repassword" onblur="checkRepassword();" /><span id="repasswordinfo"></span>
+			</div>
+			<div>
+				姓名：<input type="text" name="name" id="name" onblur="checkName();" /><span id="nameinfo"></span>
+			</div>
+			<div>
+				<input type="submit" value="注册" />
+			</div>
+		</form>
+	</body>
+
+</html>

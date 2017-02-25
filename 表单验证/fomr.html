@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.vf_Normal,
+			.vf_Correct,
+			.vf_Error,
+			.vf_Focus {
+				vertical-align: middle;
+				display: inline-block;
+				padding: 3px;
+				font-size: 12px;
+				margin-left: 5px;
+				color: red;
+			}
+		</style>
+		<script src="js/forms.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="" method="post" id="theForm">
+			英语<input type="text" dataType="english[1,]" />
+			中文<input type="text" dataType="chinese[1,5]" />
+			<div class="vf_Correct"></div>
+			<input type="submit" value=""/>
+		</form>
+		<script type="text/javascript">
+			new ValidatorForm(GetID('theForm'));
+		</script>
+	</body>
+</html>

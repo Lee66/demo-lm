@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>test</title>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fomvalue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			var form;
+			var v_int= /^(0?1[3578]\d{9})*$/;
+			var text = "手机号格式不正确";
+			$(function() {
+				var uf = new UserForm([new Field({
+					fid: "f1",
+					val: [new Len_val(1,11,text), new Exp_val(v_int, text)],
+					suc: function(text) {
+						$('#t1').html('');
+						$('#t1').attr('class', 'suc');
+					},
+					err: function(text) {
+						$('#t1').html(text);
+						$('#t1').attr('class', 'error');
+					}
+				})]);
+				uf.set_submit(
+					"bt",
+					function() {
+						getData();
+						alert("表单已经提交了");
+					}
+				);
+			});
+			function getData(){
+				console.log('成功');
+			}
+		</script>
+		<style>
+			.suc {
+				background-color: #00ff00;
+			}
+			
+			.error {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="" method="post">
+			
+		<input type="text" id="f1" name="f1" /><span id="t1"></span><br/>
+		<input type="button" id="bt" value="提交" />
+		</form>
+	</body>
+
+</html>
