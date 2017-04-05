@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+			}
+			.slidebar{
+				position: fixed;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100px;
+				border: 1px solid red;
+				text-align: center;
+				line-height: 30px;
+			}
+			.slidebar a{
+				display: block;
+			}
+			.main a{
+				display: block;
+				background: green;
+				height: 200px;
+				margin-left: 100px;
+			}
+			.current{
+				color: green;
+				background: yellow;
+			}
+			.main{
+				margin-left: 200px;
+			}
+			.main div{
+				height: 300px;
+				border: 1px solid red;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="slidebar navigation clearfix" id="navigation">
+			<li><a href="#jump1" class="current">1</a></li>
+			<li><a href="#jump2">2</a></li>
+			<li><a href="#jump3">3</a></li>
+			<li><a href="#jump4">4</a></li>
+			<li><a href="#jump5">5</a></li>
+			<li><a href="#jump6">6</a></li>
+			<li><a href="#jump7">7</a></li>
+			<li><a href="#jump8">8</a></li>
+			<li><a href="#jump9">9</a></li>
+			<li><a href="#jump10">10</a></li>
+		</ul>
+		<div class="main" id="box">
+			<div id="jump1">1</div>
+			<div id="jump2">2</div>
+			<div id="jump3">3</div>
+			<div id="jump4">4</div>
+			<div id="jump5">5</div>
+			<div id="jump6">6</div>
+			<div id="jump7">7</div>
+			<div id="jump8">8</div>
+			<div id="jump9">9</div>
+			<div id="jump10">10</div>
+		</div>
+		<script src="js/navScroll.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var navigation = new navScroll({
+				nav : {
+					id : 'navigation',
+					current : 'current',
+					speed : 25,
+					fixPx : 300
+				}
+			});
+			</script>
+	</body>
+</html>
