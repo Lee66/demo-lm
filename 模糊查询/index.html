@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/input.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style=" background-color:green">
+    <form id="form1" runat="server">
+    <div style="margin-left: 300px; margin-top: 300px;">
+        青苹果搜索：
+        <input type="text" id="SearchID" onfocus="javascript:if(this.value=='请输入内容')this.value='';"
+            onkeyup="autoComplete.start(event)" onblur="javascript:if(this.value=='')this.value='请输入内容';" />
+        <div class="auto_hidden" style="margin-left:100px; background-color:white" id="SearchLike">
+            <!--自动完成 DIV-->
+        </div>
+    </div>
+    </form>
+</body>
+<script>
+    var get_ID = document.getElementById("SearchID");
+    var get_Like = document.getElementById("SearchLike");
+    var autoComplete = new AutoComplete(get_ID, get_Like, ['中国', '中南海', '青苹果', '青菜', '青茶', '博客园', '博士', '博大精深']);
+</script>
+</html>
