@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="City-out">
+			<div class="city-title">当前定位 :<span class="city-now">芜湖市</span><i class="city-icon"></i></div>
+
+			<div class="city-sort">A</div>
+			<a name="city-first"></a>
+			<div class="cityList-box">
+				<ul>
+					<li>安吉市</li>
+					<li>安康市</li>
+					<li>安庆市</li>
+					<li>鞍山市</li>
+				</ul>
+			</div>
+			<div class="city-sort">B</div>
+			<a name="city-second"></a>
+			<div class="cityList-box">
+				<ul>
+					<li>蚌埠市</li>
+					<li>保定市</li>
+					<li>宝鸡市</li>
+					<li>包头市</li>
+					<li>蚌埠市</li>
+					<li>保定市</li>
+					<li>宝鸡市</li>
+					<li>包头市</li>
+				</ul>
+			</div>
+			<div class="city-sort">C</div>
+			<a name="city-third"></a>
+			<div class="cityList-box">
+				<ul>
+					<li>成都市</li>
+					<li>成都市</li>
+					<li>成都市</li>
+					<li>成都市</li>
+					<li>成都市</li>
+				</ul>
+			</div>
+			<div class="city-sort">D</div>
+			<a name="city-fourth"></a>
+			<div class="cityList-box">
+				<ul>
+					<li>大同市</li>
+					<li>大同市</li>
+				</ul>
+			</div>
+			<div class="city-sort">E</div>
+			<a name="city-fifth"></a>
+			<div class="cityList-box">
+				<ul>
+					<li>银城市</li>
+					<li>银城市</li>
+					<li>银城市</li>
+					<li>银城市</li>
+					<li>银城市</li>
+				</ul>
+			</div>
+			<div class="city-letter right-letter">
+				<ul>
+					<li>
+						<a href="javascript:;" data-name="city-first" class="nav-word-on">A</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-second">B</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-third">C</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-fourth">D</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-fifth">E</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-sixth">F</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-seventh">G</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-eighth">H</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-ninth">I</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-tenth">J</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-eleventh">K</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-twelth">L</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-thirteenth">M</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-fourteenth">N</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-fifteenth">O</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-sixteenth">P</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-seventeenth">Q</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-eighteenth">R</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-ninteenth">S</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="city-twenty">T</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-first">U</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-second">V</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-third">W</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-fourth">X</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-fifth">Y</a>
+					</li>
+					<li>
+						<a href="javascript:;" data-name="letter-sixth">Z</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--<script src="js/anchor.js"></script>-->
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script>
+			$(function() {
+				//城市分类 锚点设置
+				var element = new Array("city-first", "city-second", "city-third", "city-fourth", "city-fifth", "city-sixth", "city-seventh",
+					"city-eighth", "city-ninth", "city-tenth", "city-eleventh", "city-twelth", "city-thirteenth", "city-fourteenth", "city-fifteenth", "city-seventeenth", "city-eighteenth", "city-ninteenth", "city-twenty", "letter-first", "letter-second", "letter-third", "letter-fourth", "letter-fifth", "letter-sixth");
+				$(function() {
+					nav_scroll(element);
+				});
+				$(window).scroll(function() {
+					nav_scroll(element);
+				});
+			})
+		</script>
+	</body>
+
+</html>

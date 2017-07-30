@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<span style="font-size:18px;"><script language="javascript"> 
+function countChar(textareaName,spanName) 
+{ 
+document.getElementById(spanName).innerHTML = 10 - document.getElementById(textareaName).value.length; 
+} 
+</script> 
+可以输入<span id="counter">10</span>字<br/> 
+<textarea id="status" name="status" rows="6" cols="40"maxlength="10" onkeydown='countChar("status","counter");' 
+onkeyup='countChar("status","counter");'></textarea></span> 
+
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style type="text/css">
+			html {
+				font-size: 20px;
+			}
+			
+			#target {
+				width: 300px;
+				height: 1000px;
+				margin: 40px auto;
+				box-sizing: border;
+				border: 100px solid #aaa;
+				background-color: #ccc;
+				text-align: center;
+				line-height: 1000px;
+				font-size: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="target">
+			target content
+		</div>
+		<script type="text/javascript">
+			var obj = {
+				is_loading: false, //是否正在加载数据 
+				index: 1, //加载的区域的序号，用于隔行显示不同背景色的。可选。
+				div: null,
+				timeout: 0 //延时的时间声明(模拟)
+			};
+
+			// 描 述：游缆器滚动事件  
+			window.onscroll = function() {
+				console.log('scroll...')
+
+				if(ui_is_screen_bottom() && !obj.is_loading) {
+					console.log('will load...')
+					//状态;  
+					obj.is_loading = true;
+
+					// 知识点：document.createElement 创建元素
+					// 加载进度条
+					var div = document.createElement("div");
+					div.innerHTML = "正在加载数据中..." + obj.index;
+					with(div.style) {
+						position = "fixed";
+						left = "50%";
+						marginLeft = "-6em";
+						height = "auto";
+						width = "12em";
+						fontSize = "0.6em";
+						backgroundColor = "#666";
+						color = "#FFF";
+						textAlign = "center";
+						lineHeight = "2em";
+						// 知识点：parseInt 转化为整型
+						// 对元素滚动定位处理
+						top = parseInt(document.documentElement.scrollTop, 10) + "px";
+					}
+					document.body.appendChild(div);
+					obj.div = div;
+					//模拟Ajax加载;  
+					obj.timeout = window.setTimeout(load_ajax_data, 500); //模拟Ajax加载;使用Ajax数据注释掉本行  
+				}
+				if(obj.is_loading) {
+					obj.div.style.top = parseInt(document.documentElement.scrollTop, 10) + "px";
+				}
+			}
+			//模拟加载Ajax数据  
+			function load_ajax_data() {
+				// 知识点：cloneNode(true) 克隆元素  
+				var element = document.getElementById("target").cloneNode(true);
+				// 用于渐变内容区分，知识点： 两个数字之间求余 使用“%”  
+				element.style.backgroundColor = (obj.index % 2 == 0 ? "#999" : "#fff");
+
+				document.body.appendChild(element);
+
+				obj.index++;
+
+				//状态  
+				if(true) {
+					// 知识点： window.setTimeout window.clearTimeout 对称关系，有设置set就要清除clear  
+					// (时间长了耗费系统内存,有可能回导致IE崩溃,所以清除时间点,使用Ajax返回数据注释掉本行)  
+					if(obj.timeout != 0) window.clearTimeout(obj.timeout);
+
+					document.body.removeChild(obj.div);
+				}
+				obj.is_loading = false;
+				console.log('load end...')
+			}
+			// 描 述：判断是滚动到页面底部  
+			function ui_is_screen_bottom() {
+				var scrollTop = 0;
+				var clientHeight = 0;
+				var scrollHeight = 0;
+				if(document.documentElement && document.documentElement.scrollTop) {
+					scrollTop = document.documentElement.scrollTop;
+				} else if(document.body) {
+					scrollTop = document.body.scrollTop;
+				}
+				if(document.body.clientHeight && document.documentElement.clientHeight) {
+					clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+				} else {
+					clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+				}
+				// 知识点：Math.max 比较大小，取最大值返回  
+				scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+				if(scrollTop + clientHeight == scrollHeight) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>
